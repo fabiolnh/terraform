@@ -15,12 +15,14 @@
 - If you do not have the current state in the file, terraform will not know the current state of your cloud. So, this way it will not work perfectly. You have to keep this file. You have to put this file in a S3 bucket, this way you can share with others that will deploy new changes.
 - It users HCL (Hashcorp Language)
 
+```
 $ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" 
 $ terraform plan (an action plan to get the final result)
 $ terraform apply (execute the plan. After it, terraform creates or updates the file .tfstate, which is the file that keeps all the states. OBS: it creates a tfstate.backup to to keep backups)
 $ File: terraform.tfvars (in this file you can keep variables, instead of be asked in the prompt when you do not write it in the .tf)
 $ export TF_VAR_variable="..." ("variable" will be read as an env variable when you do an "apply")
 $ terraform apply -var "variable=..." (also works as a variable)
+```
 
 - Outputs: you can work with outputs. (Ex: when you create an EC2, you can get the IP to do something)
 - Resource ("resource"): when you need to create something
