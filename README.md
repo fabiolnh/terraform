@@ -13,7 +13,7 @@
     2) Ansible: Better for managing and configuring automation, installations, etc. (ex: change config files, configure the servers, etc)
 - Everything you do on terraform, it is annotated in a file. This way, when you do a change in this configuration, it will compare with it. Sometimes it does not change, it destroys and creates again. That's why it is important to see the action plan before executing it.
 - If you do not have the current state in the file, terraform will not know the current state of your cloud. So, this way it will not work perfectly. You have to keep this file. You have to put this file in a S3 bucket, this way you can share with others that will deploy new changes.
-- It users HCL (Hashcorp Language)
+- It uses HCL (Hashcorp Language)
 
 ```
 $ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" 
