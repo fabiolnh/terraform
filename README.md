@@ -18,12 +18,21 @@
 ```
 $ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" 
 $ terraform plan (an action plan to get the final result)
-$ terraform apply (execute the plan. After it, terraform creates or updates the file .tfstate, which is the file that keeps all the states. OBS: it creates a tfstate.backup to to keep backups)
+$ terraform apply (execute the plan. After it, terraform creates or updates the file .tfstate, which is the file that keeps all the states. OBS: it creates a tfstate.backup to to keep backups) (use --auto-approve to ignore questions)
 $ File: terraform.tfvars (in this file you can keep variables, instead of be asked in the prompt when you do not write it in the .tf)
 $ export TF_VAR_variable="..." ("variable" will be read as an env variable when you do an "apply")
 $ terraform apply -var "variable=..." (also works as a variable)
 ```
 
-- Outputs: you can work with outputs. (Ex: when you create an EC2, you can get the IP to do something)
-- Resource ("resource"): when you need to create something
-- DataSources ("data"): Sometimes, the infrastructure of your cloud already exists. With DataSource (the provider makes available it or not), you can get this information (different from the concept of "resource", which is the piece that helps to create the information). It reads something that already exists in the provider
+
+- Important Types in the config file:
+    * Resource ("resource"): when you need to create something
+    * DataSources ("data"): Sometimes, the infrastructure of your cloud already exists. With DataSource (the provider makes available it or not), you can get this information (different from the concept of "resource", which is the piece that helps to create the information). It reads something that already exists in the provider
+    * Outputs ("output"): you can work with outputs to the console. (Ex: when you create an EC2, you can get the IP to do something)
+    * local ("local"): useful to work with workspace (env variable to each account in the cloud). You use it together with "variable"
+    * Variable ("variable)": variable to use anywhere
+ 
+- OBS: You can separate the configuration into files or you can do everything in one file
+- OBS: Work with terraform is not hard. You only have to know the features of the provider to adjust configs
+
+- 
