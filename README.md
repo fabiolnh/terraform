@@ -1,4 +1,4 @@
-# Terraform (currently studying)
+# Terraform
 - IaC - Infrastructure as Code
 - Created by Hashcorp, developed in Golang
 - Automate how we can provision our infrastructure
