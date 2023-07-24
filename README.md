@@ -16,7 +16,7 @@
 - It uses HCL (Hashcorp Language)
 
 ```
-$ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" and define the -backend-config that can be a bucket s3)
+$ terraform init (it downloads the providers and initiates the modules and define the -backend-config that can be a bucket s3 to keep the .tfstate)
 $ terraform workspace select (select the workspace that can be used as a value for each env. For it, you can use local with command: [terraform.workspace] )
 $ terraform fmt (format the files. It is needed)
 $ terraform validate (to validate the configuration)
@@ -39,4 +39,8 @@ $ terraform destroy (destroy everything that was created that is in the ".tfstat
 - OBS: You can separate the configuration into files or you can do everything in one file
 - OBS: Work with terraform is not hard. You only have to know the features of the provider to adjust configs
 
-- 
+- Modules: It takes a grouping of resources and put everything together. So, instead of configuring a lot of lines, you can use modules. Terraform has modules for everything. If you want, you can publish your own module to github and inform the terraform. Rules to create your own terraform: the github repo name has to be written this way: terraform-<PROVIDER>-<NAME>, and has some other rules. Check the terraform website for more information.
+
+- It is recommended that you never make any changes in the Cloud directly, because if you change something manually and execute terraform after it, it can cause some conflict.
+ 
+- It is good to version the S3 to keep the .tfstate versioned.
