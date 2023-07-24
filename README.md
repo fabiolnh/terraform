@@ -16,12 +16,16 @@
 - It uses HCL (Hashcorp Language)
 
 ```
-$ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" 
+$ terraform init (it downloads the providers (ex: aws, google cloud, kubernetes, etc) from "terraform registry" and define the -backend-config that can be a bucket s3)
+$ terraform workspace select (select the workspace that can be used as a value for each env. For it, you can use local with command: [terraform.workspace] )
+$ terraform fmt (format the files. It is needed)
+$ terraform validate (to validate the configuration)
 $ terraform plan (an action plan to get the final result)
 $ terraform apply (execute the plan. After it, terraform creates or updates the file .tfstate, which is the file that keeps all the states. OBS: it creates a tfstate.backup to to keep backups) (use --auto-approve to ignore questions)
 $ File: terraform.tfvars (in this file you can keep variables, instead of be asked in the prompt when you do not write it in the .tf)
 $ export TF_VAR_variable="..." ("variable" will be read as an env variable when you do an "apply")
 $ terraform apply -var "variable=..." (also works as a variable)
+$ terraform destroy (destroy everything that was created that is in the ".tfstate")
 ```
 
 
