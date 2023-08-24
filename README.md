@@ -44,3 +44,11 @@ $ terraform destroy (destroy everything that was created that is in the ".tfstat
 - It is recommended that you never make any changes in the Cloud directly, because if you change something manually and execute terraform after it, it can cause some conflict.
  
 - It is good to version the S3 to keep the .tfstate versioned.
+
+- If you want to work with tfvars instead of local/workspace, you can declare the variable and use with ${var.<value>}, and: 
+
+```
+terraform init -backend-config=/dev/backend.tfvars
+terraform plan -var-file="/dev/terraform.tfvars"
+terraform apply -var-file="/dev/terraform.tfvars" --auto-approve
+```
